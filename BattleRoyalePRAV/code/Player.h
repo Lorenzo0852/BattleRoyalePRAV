@@ -2,8 +2,18 @@
 
 #include "Attack.h"
 
+
 class Player
 {
+public:
+	enum PlayerTypes
+	{
+		Bruiser = 0,
+		Healer,
+		Tank,
+		Count
+	};
+
 public:
 	int m_Id;
 	//Base health

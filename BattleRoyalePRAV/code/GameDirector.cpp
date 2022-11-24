@@ -7,7 +7,15 @@ GameDirector::GameDirector(unsigned amount_of_players, Displayer & displayer)
 
 	m_Players.reserve(sizeof(Player*) * amount_of_players);
 
-	for (int i = 0; i < amount_of_players; ++i)
+
+	displayer.Render(Displayer::Stage::PlayerSelection);
+
+	Player * p = displayer.GetPlayerSelection();
+	m_Players.push_back(p);
+	displayer.AddPlayer(p);
+
+	//i = 1 because player ID:0 is player-selected.
+	for (int i = 1; i < amount_of_players; ++i)
 	{
 		Player* p = nullptr;
 		int random = BRTools::RandomRange(0, 100);
@@ -31,16 +39,11 @@ GameDirector::GameDirector(unsigned amount_of_players, Displayer & displayer)
 
 		displayer.AddPlayer(p);
 	}
-	displayer.Render();
+	displayer.Render(Displayer::Stage::AddingPlayers);
 }
 
 void GameDirector::Simulate()
 {
-	std::cout << "\n\n" << "PRESS ENTER TO START THE BATTLE \n";
-	std::cin.ignore();
-
-	CLEAR_CONSOLE;
-
 	m_IsSimulating = true;
 
 	while (m_IsSimulating)
