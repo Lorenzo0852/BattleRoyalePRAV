@@ -37,6 +37,7 @@ private:
 	//One time setups
 	void SetupPlayerSelection();
 	void SetupPlayerAddition();
+	void SetupBattle();
 
 	//Real-Time updates
 	void RenderPlayerSelection();

@@ -1,6 +1,7 @@
 #include "GameDirector.h"
 
 GameDirector::GameDirector(unsigned amount_of_players, Displayer & displayer)
+	:m_Displayer(displayer)
 {
 	//Force amount of players to be even
 	if (amount_of_players % 2 != 0) --amount_of_players;
@@ -8,11 +9,11 @@ GameDirector::GameDirector(unsigned amount_of_players, Displayer & displayer)
 	m_Players.reserve(sizeof(Player*) * amount_of_players);
 
 
-	displayer.Render(Displayer::Stage::PlayerSelection);
+	m_Displayer.Render(Displayer::Stage::PlayerSelection);
 
 	Player * p = displayer.GetPlayerSelection();
 	m_Players.push_back(p);
-	displayer.AddPlayer(p);
+	m_Displayer.AddPlayer(p);
 
 	//i = 1 because player ID:0 is player-selected.
 	for (int i = 1; i < amount_of_players; ++i)
@@ -37,19 +38,20 @@ GameDirector::GameDirector(unsigned amount_of_players, Displayer & displayer)
 
 		m_Players.push_back(p);
 
-		displayer.AddPlayer(p);
+		m_Displayer.AddPlayer(p);
 	}
-	displayer.Render(Displayer::Stage::AddingPlayers);
+	m_Displayer.Render(Displayer::Stage::AddingPlayers);
 }
 
 void GameDirector::Simulate()
 {
 	m_IsSimulating = true;
 
+	m_Displayer.Render(Displayer::Stage::Battle);
 	while (m_IsSimulating)
 	{
-		ChoosePairs();
-		//
+		ChoosePairs(); //<----------------- Memleak
+		
 		//Choose pairs
 		//Attack ticks
 		//If half dead -> Choose pairs
@@ -62,14 +64,12 @@ void GameDirector::Simulate()
 }
 
 void GameDirector::ChoosePairs()
-{
-	int number_of_pairs = m_Players.size();
-	
+{	
 	Player* player1 = nullptr;
 	Player* player2 = nullptr;
 
-	std::vector<int> rng;
-	rng.reserve(sizeof(int) * m_Players.size());
+	std::vector<int> rng;									/**/// Leak is here
+	rng.reserve(sizeof(int) * m_Players.size());			/**///
 
 	for (int i = 0; i < m_Players.size(); ++i)
 	{

@@ -1,0 +1,15 @@
+﻿  GameDirector.cpp
+C:\Users\loren\Documents\Proyectos\BattleRoyalePRAV\BattleRoyalePRAV\code\BattleRoyaleTools.h(13,1): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  The contents of <optional> are available only with C++17 or later.
+C:\Users\loren\Documents\Proyectos\BattleRoyalePRAV\BattleRoyalePRAV\code\GameDirector.cpp(22,20): warning C4018: '<': no coinciden signed/unsigned
+C:\Users\loren\Documents\Proyectos\BattleRoyalePRAV\BattleRoyalePRAV\code\GameDirector.cpp(71,40): warning C4267: 'inicializando': conversión de 'size_t' a 'int'; posible pérdida de datos
+  main.cpp
+C:\Users\loren\Documents\Proyectos\BattleRoyalePRAV\BattleRoyalePRAV\code\BattleRoyaleTools.h(13,1): warning C4067: símbolos (token) inesperados después de la directiva del preprocesador; se esperaba una nueva línea
+  The contents of <optional> are available only with C++17 or later.
+C:\Users\loren\Documents\Proyectos\BattleRoyalePRAV\BattleRoyalePRAV\code\main.cpp(9,12): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Generando código
+  15 of 1529 functions ( 1.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  BattleRoyalePRAV.vcxproj -> C:\Users\loren\Documents\Proyectos\BattleRoyalePRAV\x64\Release\BattleRoyalePRAV.exe

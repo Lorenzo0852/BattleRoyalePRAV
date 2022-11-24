@@ -10,6 +10,10 @@ typedef std::vector<std::pair<Player*, Player*>>	BattleBuffer;
 
 class GameDirector
 {
+private:
+	std::vector<int> rng;
+
+private:
 	//A tick is a complete game loop
 	//A round happens when all players have gone through a tick (so in 1vs1, 2 ticks, one per player).
 
@@ -19,6 +23,9 @@ class GameDirector
 
 	std::vector<Player* >	m_Players;
 	BattleBuffer			m_BattleBuffer;
+
+	//The displayer that's rendering everything to the console.
+	Displayer& m_Displayer;
 
 public:
 
