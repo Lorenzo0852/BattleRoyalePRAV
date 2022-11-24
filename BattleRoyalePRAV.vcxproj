@@ -20,14 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BattleRoyalePRAV\code\Attack.cpp" />
-    <ClCompile Include="BattleRoyalePRAV\code\BattleDisplay.cpp" />
+    <ClCompile Include="BattleRoyalePRAV\code\Displayer.cpp" />
     <ClCompile Include="BattleRoyalePRAV\code\GameDirector.cpp" />
     <ClCompile Include="BattleRoyalePRAV\code\main.cpp" />
     <ClCompile Include="BattleRoyalePRAV\code\Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BattleRoyalePRAV\code\Attack.h" />
-    <ClInclude Include="BattleRoyalePRAV\code\BattleDisplay.h" />
+    <ClInclude Include="BattleRoyalePRAV\code\Displayer.h" />
     <ClInclude Include="BattleRoyalePRAV\code\BattleRoyaleTools.h" />
     <ClInclude Include="BattleRoyalePRAV\code\GameDirector.h" />
     <ClInclude Include="BattleRoyalePRAV\code\Player.h" />

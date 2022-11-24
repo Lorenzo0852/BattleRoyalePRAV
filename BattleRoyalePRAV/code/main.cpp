@@ -1,7 +1,7 @@
 #include <iostream>
 
 #include "GameDirector.h"
-#include "BattleDisplay.h"
+#include "Displayer.h"
 
 int main(int argc, char** argv)
 {

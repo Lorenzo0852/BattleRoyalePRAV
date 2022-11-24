@@ -1,8 +1,12 @@
 #pragma once
 
 #include "Player.h"
-#include "BattleDisplay.h"
+#include "Displayer.h"
 #include "BattleRoyaleTools.h"
+#include <utility>
+#include <map>
+
+typedef std::vector<std::pair<Player*, Player*>>	BattleBuffer;
 
 class GameDirector
 {
@@ -12,7 +16,9 @@ class GameDirector
 	bool m_IsSimulating;
 
 	int m_CurrentRound, m_CurrentTick;
-	std::vector<Player* > m_Players;
+
+	std::vector<Player* >	m_Players;
+	BattleBuffer			m_BattleBuffer;
 
 public:
 

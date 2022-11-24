@@ -27,7 +27,7 @@
     <ClCompile Include="BattleRoyalePRAV\code\Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BattleRoyalePRAV\code\BattleDisplay.cpp">
+    <ClCompile Include="BattleRoyalePRAV\code\Displayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +44,7 @@
     <ClInclude Include="BattleRoyalePRAV\code\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BattleRoyalePRAV\code\BattleDisplay.h">
+    <ClInclude Include="BattleRoyalePRAV\code\Displayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

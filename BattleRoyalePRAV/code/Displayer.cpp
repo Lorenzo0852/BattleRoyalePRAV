@@ -1,4 +1,4 @@
-﻿#include "BattleDisplay.h"
+﻿#include "Displayer.h"
 
 
 Displayer::Displayer()
@@ -14,7 +14,11 @@ void Displayer::AddPlayer(Player* player)
 	int avg_dmg = (player->m_Attacks[0].damage + player->m_Attacks[1].damage + player->m_Attacks[2].damage) / 3;
 	int avg_crit = (player->m_Attacks[0].critical_chance + player->m_Attacks[1].critical_chance + player->m_Attacks[2].critical_chance) / 3;
 
-	t.add_row({ "[" + std::to_string(player->m_Id) + "] " + player->m_Name,	//NAME or ID
+	//ID + ROLE + NAME + ATTACKS + AVD DMG + AVG CRIT
+
+	t.add_row({ "[" + std::to_string(player->m_Id) + "] ",								//ID
+		player->m_Role,																	//ROLE
+		player->m_Name,																	//NAME
 		(player->m_Attacks[0].GetName() + ", " +										//****
 		player->m_Attacks[1].GetName() + ", " +											//Attacks
 		player->m_Attacks[2].GetName()),												//****
@@ -161,7 +165,7 @@ void Displayer::SetupPlayerAddition()
 
 	Table& t = m_PlayerTable;
 
-	t.add_row({ "Player", "Abilities", "DAMAGE (avg)", "CRIT CHANCE (avg)" });
+	t.add_row({ "ID", "Role", "Name", "Abilities", "DAMAGE (avg)", "CRIT CHANCE (avg)" });
 
 	t.format()
 		.font_style({ FontStyle::bold })
@@ -202,11 +206,20 @@ void Displayer::SetupPlayerAddition()
 		.font_background_color(Color::blue)
 		.font_color(Color::white);
 
-	t.column(2).format()
+	t.column(0).format()
+		.padding_left(2)
+		.padding_right(2);
+
+
+	t.column(1).format()
+		.padding_left(3)
+		.padding_right(3);
+
+	t.column(4).format()
 		.padding_left(1)
 		.padding_right(1);
 
-	t.column(3).format()
+	t.column(5).format()
 		.padding_left(1)
 		.padding_right(1);
 }
@@ -273,7 +286,8 @@ void Displayer::RenderPlayerAddition()
 
 	std::cout << t;
 
-	std::cout << "\n\n" << "PRESS ENTER TO START THE BATTLE \n";
+	std::cout << "\n\n" << "PRESS ENTER TO START THE BATTLE";
+	std::cin.ignore();
 	std::cin.ignore();
 }
 

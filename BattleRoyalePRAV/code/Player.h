@@ -2,7 +2,6 @@
 
 #include "Attack.h"
 
-
 class Player
 {
 public:
@@ -18,6 +17,7 @@ public:
 	int m_Id;
 	//Base health
 	int m_Health = 100;
+	std::string m_Role;
 	std::string m_Name;
 
 	Attack m_Attacks[3];

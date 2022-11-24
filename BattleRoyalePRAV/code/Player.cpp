@@ -3,7 +3,9 @@
 Player::Player(int id, int health)
 	:
 	m_Health(health),
-	m_Id(id)
+	m_Id(id),
+	m_Role("Default"),
+	m_Name("Default_Name")
 {
 	for (int i = 0; i < 3; ++i)
 	{
@@ -24,19 +26,22 @@ void Player::Battle(Player& other)
 Bruiser::Bruiser(int id) :
 	Player(id)
 {
-	m_Name = "Bruiser";
+	m_Role = "Bruiser";
+	m_Name = BRTools::RandomName();
 }
 
 Healer::Healer(int id) :
 	Player(id)
 {
-	m_Name = "Healer";
+	m_Role = "Healer";
+	m_Name = BRTools::RandomName();
 }
 
 Tank::Tank(int id) :
 	Player(id)
 {
-	m_Name = "Tank";
+	m_Role = "Tank";
+	m_Name = BRTools::RandomName();
 }
 
 void Bruiser::Battle(Player& other)

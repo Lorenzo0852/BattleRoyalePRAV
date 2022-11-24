@@ -35,8 +35,8 @@ private:
 
 private:
 	//One time setups
-	void SetupPlayerAddition();
 	void SetupPlayerSelection();
+	void SetupPlayerAddition();
 
 	//Real-Time updates
 	void RenderPlayerSelection();

@@ -17,8 +17,34 @@
 
 namespace BRTools
 {
+
+	//Defining a database of names...
+	static std::string names[15] =
+	{
+		"Pepe",
+		"Jaime",
+		"Mortadelo",
+		"Confucio",
+		"Alberto",
+		"Nuria",
+		"Irma",
+		"Jesucristo",
+		"Bejo",
+		"Loco",
+		"Willyrex",
+		"Aristoteles",
+		"Napoleon",
+		"Filemon",
+		"Verdun",
+	};
+
 	static inline int RandomRange(int from, int to)
 	{
 		return rand() % to + from;
+	}
+
+	static std::string RandomName()
+	{
+		return names[RandomRange(0,14)];
 	}
 }

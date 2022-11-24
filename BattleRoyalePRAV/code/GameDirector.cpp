@@ -48,6 +48,7 @@ void GameDirector::Simulate()
 
 	while (m_IsSimulating)
 	{
+		ChoosePairs();
 		//
 		//Choose pairs
 		//Attack ticks
@@ -58,6 +59,31 @@ void GameDirector::Simulate()
 
 	//Show winner name & config
 	//cin -> Stop simulation
+}
+
+void GameDirector::ChoosePairs()
+{
+	int number_of_pairs = m_Players.size();
+	
+	Player* player1 = nullptr;
+	Player* player2 = nullptr;
+
+	std::vector<int> rng;
+	rng.reserve(sizeof(int) * m_Players.size());
+
+	for (int i = 0; i < m_Players.size(); ++i)
+	{
+		rng.push_back(i);
+	}
+	std::random_shuffle(rng.begin(), rng.end());
+
+	for (int i = 0; i < rng.size(); i+=2)
+	{
+		player1 = m_Players[i];
+		player2 = m_Players[i+1];
+
+		m_BattleBuffer.push_back({player1, player2});
+	}
 }
 
 GameDirector::~GameDirector()
