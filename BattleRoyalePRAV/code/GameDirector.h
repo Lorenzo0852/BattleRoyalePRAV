@@ -17,15 +17,21 @@ private:
 	//A tick is a complete game loop
 	//A round happens when all players have gone through a tick (so in 1vs1, 2 ticks, one per player).
 
-	bool m_IsSimulating;
+	float m_DeltaTime = 500;
 
-	int m_CurrentRound, m_CurrentTick;
+	bool m_IsSimulating;
+	int m_CurrentRound = 1;
+	int m_CurrentTick = 1;
 
 	std::vector<Player* >	m_Players;
 	BattleBuffer			m_BattleBuffer;
 
 	//The displayer that's rendering everything to the console.
 	Displayer& m_Displayer;
+
+private:
+	// Attacks per tick
+	void SimulateBattleTick();
 
 public:
 
@@ -38,7 +44,6 @@ public:
 	~GameDirector();
 
 	void Simulate();
-
 	void ChoosePairs();
 	void NextRound();
 	void NextTick();

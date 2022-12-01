@@ -17,7 +17,6 @@
 
 namespace BRTools
 {
-
 	//Defining a database of names...
 	static std::string names[15] =
 	{

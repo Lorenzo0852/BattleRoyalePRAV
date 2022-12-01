@@ -325,6 +325,12 @@ void Displayer::RenderPlayerAddition()
 void Displayer::RenderBattle()
 {
 	Table& t = m_BattleTable;
+
+	//t.add_row({ "ROLE",	"NAME",		"ATTACK", "HP", "HP", "ATTACK", "NAME", "ROLE" });
+
+
+
+
 	std::cout << t;
 }
 void Displayer::RenderWinnerPresentation()

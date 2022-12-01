@@ -48,28 +48,41 @@ void GameDirector::Simulate()
 	m_IsSimulating = true;
 
 	m_Displayer.Render(Displayer::Stage::Battle);
+
+	bool generate_pairs = true;
+	//Main simulation loop
 	while (m_IsSimulating)
 	{
-		ChoosePairs(); //<----------------- Memleak
-		
-		//Choose pairs
-		//Attack ticks
-		//If half dead -> Choose pairs
+		if (generate_pairs)
+		{
+			ChoosePairs();					//<----------------- Memleak
+			generate_pairs = false;
+		}				
+		SimulateBattleTick();				//Attack ticks
+
+		//If half dead -> Choose pairs, round++
 		// 
 		//If all dead -> Stop simulation
+
+
+		//Meta stuff..
+		++m_CurrentTick;
+		Sleep(m_DeltaTime);
 	}
 
 	//Show winner name & config
 	//cin -> Stop simulation
 }
 
-void GameDirector::ChoosePairs()
-{	
-	Player* player1 = nullptr;
-	Player* player2 = nullptr;
+void GameDirector::SimulateBattleTick()
+{
+	//m_BattleBuffer
+}
 
-	std::vector<int> rng;									/**/// Leak is here
-	rng.reserve(sizeof(int) * m_Players.size());			/**///
+void GameDirector::ChoosePairs()
+{
+	std::vector<int> rng;																/**/// Leak is here
+	rng.reserve(sizeof(int) * (m_Players.size() / m_CurrentRound) );			/**/// (fixed with sleep)
 
 	for (int i = 0; i < m_Players.size(); ++i)
 	{
@@ -79,10 +92,7 @@ void GameDirector::ChoosePairs()
 
 	for (int i = 0; i < rng.size(); i+=2)
 	{
-		player1 = m_Players[i];
-		player2 = m_Players[i+1];
-
-		m_BattleBuffer.push_back({player1, player2});
+		m_BattleBuffer.push_back({ m_Players[i], m_Players[i + 1] });
 	}
 }
 
