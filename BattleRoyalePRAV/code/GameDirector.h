@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Displayer.h"
 #include "BattleRoyaleTools.h"
+#include <queue>
 #include <utility>
 #include <map>
 
@@ -17,9 +18,9 @@ private:
 	//A tick is a complete game loop
 	//A round happens when all players have gone through a tick (so in 1vs1, 2 ticks, one per player).
 
-	float m_DeltaTime = 500;
+	float m_DeltaTime = 1500; //Set in ms
 
-	bool m_IsSimulating;
+	bool m_IsSimulating = false;
 	int m_CurrentRound = 1;
 	int m_CurrentTick = 1;
 
@@ -31,7 +32,7 @@ private:
 
 private:
 	// Attacks per tick
-	void SimulateBattleTick();
+	bool SimulateBattleTick();
 
 public:
 

@@ -13,46 +13,70 @@ public:
 		Count
 	};
 
-public:
-	int m_Id;
+protected:
 	//Base health
 	int m_Health = 100;
-	std::string m_Role;
-	std::string m_Name;
+	std::string m_LastUsedAttack = "";
 
-	Attack m_Attacks[3];
+public:
+	int id;
+	std::string role;
+	std::string name;
+	bool is_alive = true;
+
+	Attack attacks[3];
 
 public:
 	Player(int id, int health = 100);
 	virtual ~Player() {};
 
 public:
-	virtual void Battle(Player& other);
+	/// <summary>
+	/// Battles another player.
+	/// </summary>
+	/// <param name="other">other player</param>
+	/// <returns>Attack Type used</returns>
+	virtual std::string Battle(Player& other);
+	virtual void ReceiveDamage(int damage);
+
+	inline int GetHP() { return m_Health; }
+	inline std::string GetLastAttack() { return m_LastUsedAttack; }
 };
 
 class Bruiser : public Player
 {
+private:
+	int m_AdditionalDamage = 10;
+	int m_ActivationChance = 15;
 public:
 	Bruiser(int id);
 	~Bruiser() override {};
 
-	virtual void Battle(Player& other) override;
+	virtual std::string Battle(Player& other) override;
 };
 
 class Healer : public Player
 {
+private:
+	int m_Healing = 5;
+	int m_ActivationChance = 55;
 public:
 	Healer(int id);
 	~Healer() override {};
 
-	virtual void Battle(Player& other) override;
+	virtual std::string Battle(Player& other) override;
 };
 
 class Tank : public Player
 {
+private:
+	int m_DamageReduction = 15;
+	int m_ActivationChance = 15;
+
 public:
 	Tank(int id);
 	~Tank() override {};
 
-	virtual void Battle(Player& other) override;
+	virtual std::string Battle(Player& other) override;
+	virtual void ReceiveDamage(int dmg) override;
 };

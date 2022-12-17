@@ -11,7 +11,7 @@ int main(int argc, char** argv)
 	//Preparing display...
 	Displayer displayer;
 
-	GameDirector director(10, displayer);
+	GameDirector director(8, displayer);
 	//Main simulation loop...
 	director.Simulate();
 

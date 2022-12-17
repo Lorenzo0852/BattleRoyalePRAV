@@ -34,6 +34,10 @@ private:
 	Stage m_CurrentStage;
 
 private:
+	int m_BattleTicks = 1; //Increased each time a battle is rendered.
+	int m_PlayersInBattle = 1; //Increased each time a player is added into battle.
+
+private:
 	//One time setups
 	void SetupPlayerSelection();
 	void SetupPlayerAddition();
@@ -42,13 +46,17 @@ private:
 	//Real-Time updates
 	void RenderPlayerSelection();
 	void RenderPlayerAddition();
-	void RenderBattle();
+	void RenderBattle(std::vector<std::pair < Player*, Player* > > * = nullptr);
 	void RenderWinnerPresentation();
 
 public:
-	void AddPlayer(Player* player);
+	void AddPlayerToPool(Player* player);
+
+	void InitializeBattleTable(int max_players);
+	void AddPairToBattle(Player* player1, Player* player2);
 	Player* GetPlayerSelection();
-	void Render(Stage stage_to_render);
+	void Render(Stage stage_to_render, std::vector<std::pair < Player*, Player* > > * battleBuffer = nullptr);
+	void ClearBattleTable();
 
 public:
 	Displayer();

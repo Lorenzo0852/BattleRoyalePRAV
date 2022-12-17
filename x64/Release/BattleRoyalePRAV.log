@@ -1,17 +1,9 @@
-﻿  Displayer.cpp
-C:\Users\loren\Documents\Proyectos\BattleRoyalePRAV\BattleRoyalePRAV\code\BattleRoyaleTools.h(13,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\optional(12): warning STL4038: The contents of <optional> are available only with C++17 or later.
-  GameDirector.cpp
-C:\Users\loren\Documents\Proyectos\BattleRoyalePRAV\BattleRoyalePRAV\code\BattleRoyaleTools.h(13,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\optional(12): warning STL4038: The contents of <optional> are available only with C++17 or later.
-C:\Users\loren\Documents\Proyectos\BattleRoyalePRAV\BattleRoyalePRAV\code\GameDirector.cpp(19,20): warning C4018: '<': signed/unsigned mismatch
-C:\Users\loren\Documents\Proyectos\BattleRoyalePRAV\BattleRoyalePRAV\code\GameDirector.cpp(70,9): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
-  main.cpp
+﻿  main.cpp
 C:\Users\loren\Documents\Proyectos\BattleRoyalePRAV\BattleRoyalePRAV\code\BattleRoyaleTools.h(13,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\optional(12): warning STL4038: The contents of <optional> are available only with C++17 or later.
 C:\Users\loren\Documents\Proyectos\BattleRoyalePRAV\BattleRoyalePRAV\code\main.cpp(9,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Generating code
-  6 of 1547 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+  2 of 1693 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     3 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
