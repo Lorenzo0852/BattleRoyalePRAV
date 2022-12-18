@@ -10,6 +10,7 @@ private:
 	int weight = 0;
 
 public:
+	Trophy() = default;
 	Trophy(int shinyness, int weight) : shinyness(shinyness), weight(weight) {}
 };
 

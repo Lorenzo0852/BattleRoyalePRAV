@@ -1,10 +1,24 @@
-﻿  main.cpp
-C:\Proyectos\BattleRoyalePRAV\BattleRoyalePRAV\code\BattleRoyaleTools.h(13,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+﻿  Displayer.cpp
+C:\Proyectos\BattleRoyalePRAV\Proyecto\BattleRoyalePRAV\code\BattleRoyaleTools.h(13,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
   The contents of <optional> are available only with C++17 or later.
-C:\Proyectos\BattleRoyalePRAV\BattleRoyalePRAV\code\main.cpp(9,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  GameDirector.cpp
+C:\Proyectos\BattleRoyalePRAV\Proyecto\BattleRoyalePRAV\code\BattleRoyaleTools.h(13,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  The contents of <optional> are available only with C++17 or later.
+C:\Proyectos\BattleRoyalePRAV\Proyecto\BattleRoyalePRAV\code\GameDirector.cpp(14,31): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Proyectos\BattleRoyalePRAV\Proyecto\BattleRoyalePRAV\code\GameDirector.cpp(60,40): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Proyectos\BattleRoyalePRAV\Proyecto\BattleRoyalePRAV\code\GameDirector.cpp(90,9): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+  main.cpp
+C:\Proyectos\BattleRoyalePRAV\Proyecto\BattleRoyalePRAV\code\BattleRoyaleTools.h(13,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+  The contents of <optional> are available only with C++17 or later.
+C:\Proyectos\BattleRoyalePRAV\Proyecto\BattleRoyalePRAV\code\main.cpp(9,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Player.cpp
+C:\Proyectos\BattleRoyalePRAV\Proyecto\BattleRoyalePRAV\code\BattleRoyaleTools.h(13,1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+C:\Proyectos\BattleRoyalePRAV\Proyecto\BattleRoyalePRAV\code\Player.cpp(104,18): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Proyectos\BattleRoyalePRAV\Proyecto\BattleRoyalePRAV\code\Player.cpp(105,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Trophy.cpp
   Generating code
-  3 of 1706 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
+  1688 of 1708 functions (98.8%) were compiled, the rest were copied from previous compilation.
+    15 functions were new in current compilation
     3 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  BattleRoyalePRAV.vcxproj -> C:\Proyectos\BattleRoyalePRAV\x64\Release\BattleRoyalePRAV.exe
+  BattleRoyalePRAV.vcxproj -> C:\Proyectos\BattleRoyalePRAV\Proyecto\x64\Release\BattleRoyalePRAV.exe

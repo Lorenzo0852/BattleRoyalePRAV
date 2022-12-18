@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Proyectos\BattleRoyalePRAV\x64\Release\BattleRoyalePRAV.exe</FullPath>
+      <FullPath>C:\Proyectos\BattleRoyalePRAV\Proyecto\x64\Release\BattleRoyalePRAV.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />
