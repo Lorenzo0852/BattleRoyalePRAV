@@ -1,12 +1,20 @@
 #include "GameDirector.h"
 
+//Number of players needs to be a power of 2. If not provided, it will default to the nearest power.
 GameDirector::GameDirector(unsigned amount_of_players, Displayer & displayer)
 	:m_Displayer(displayer)
 {
-	//Force amount of players to be even
-	if (amount_of_players % 2 != 0) --amount_of_players;
+	int corrected_players = amount_of_players;
+	double log2 = std::log2(amount_of_players);
 
-	m_Players.reserve(sizeof(Player*) * amount_of_players);
+	//Checks if the number given is a power of 2.
+	if ((int)log2 != log2)
+	{
+		//Force it to be a non-decimal power of 2
+		corrected_players = std::pow(2,(int)log2);
+	}
+
+	m_Players.reserve(sizeof(Player*) * corrected_players);
 
 
 	m_Displayer.Render(Displayer::Stage::PlayerSelection);
@@ -16,7 +24,7 @@ GameDirector::GameDirector(unsigned amount_of_players, Displayer & displayer)
 	m_Displayer.AddPlayerToPool(p);
 
 	//i = 1 because player ID:0 is player-selected.
-	for (int i = 1; i < amount_of_players; ++i)
+	for (int i = 1; i < corrected_players; ++i)
 	{
 		Player* p = nullptr;
 		int random = BRTools::RandomRange(0, 100);
@@ -65,6 +73,7 @@ void GameDirector::Simulate()
 		if (generate_pairs)
 		{
 			ChoosePairs();
+			ResetPlayersHP();
 			generate_pairs = false;
 		}
 
@@ -81,9 +90,22 @@ void GameDirector::Simulate()
 		Sleep(m_DeltaTime);
 	}
 
-	//Show winner name & config
-	//cin -> Stop simulation
+	Trophy trophy(BRTools::RandomRange(0,100), BRTools::RandomRange(0, 100));
+	m_Players[0]->trophy = trophy;
+	m_Displayer.SetWinner(m_Players[0], m_CurrentRound - 1);
+	m_Displayer.Render(Displayer::Stage::PresentWinner);
+
+	std::cout << "\n\n\n SIMULATION FINISHED \n";
 }
+
+void GameDirector::ResetPlayersHP()
+{
+	for (auto& p : m_Players)
+	{
+		p->ResetHP();
+	}
+}
+
 
 bool GameDirector::SimulateBattleTick()
 {

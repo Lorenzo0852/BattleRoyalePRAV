@@ -78,7 +78,7 @@ std::string Healer::Battle(Player& other)
 	
 	if (chance <= m_ActivationChance) m_Health += m_Healing; //Can overflow to +100 by design.
 	
-	Player::Battle(other);
+	return Player::Battle(other);
 }
 
 Tank::Tank(int id) :
@@ -90,7 +90,7 @@ Tank::Tank(int id) :
 
 std::string Tank::Battle(Player& other)
 {
-	Player::Battle(other);
+	return Player::Battle(other);
 	//stuff per tick
 }
 

@@ -30,6 +30,9 @@
     <ClCompile Include="BattleRoyalePRAV\code\Displayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="BattleRoyalePRAV\code\Trophy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BattleRoyalePRAV\code\Attack.h">
@@ -47,5 +50,11 @@
     <ClInclude Include="BattleRoyalePRAV\code\Displayer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BattleRoyalePRAV\code\Trophy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

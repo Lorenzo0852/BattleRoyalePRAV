@@ -1,1 +1,2 @@
 C:\Users\loren\Documents\Proyectos\BattleRoyalePRAV\x64\Release\BattleRoyalePRAV.exe
+C:\Proyectos\BattleRoyalePRAV\x64\Release\BattleRoyalePRAV.exe

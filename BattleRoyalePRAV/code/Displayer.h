@@ -31,6 +31,14 @@ private:
 	Player::PlayerTypes m_PlayerTypeSelection;
 	Attack::AttackType m_AttackTypeSelection[3];
 
+	struct WinnerInfo
+	{
+		Player* winner;
+		int roundsSurvived;
+	};
+
+	WinnerInfo m_WinnerInfo;
+
 	Stage m_CurrentStage;
 
 private:
@@ -42,6 +50,7 @@ private:
 	void SetupPlayerSelection();
 	void SetupPlayerAddition();
 	void SetupBattle();
+	void SetupWinner();
 
 	//Real-Time updates
 	void RenderPlayerSelection();
@@ -51,10 +60,11 @@ private:
 
 public:
 	void AddPlayerToPool(Player* player);
-
 	void InitializeBattleTable(int max_players);
 	void AddPairToBattle(Player* player1, Player* player2);
 	Player* GetPlayerSelection();
+
+	inline void SetWinner(Player* winner, int roundsSurvived) { this->m_WinnerInfo.winner = winner; this->m_WinnerInfo.roundsSurvived = roundsSurvived; }
 	void Render(Stage stage_to_render, std::vector<std::pair < Player*, Player* > > * battleBuffer = nullptr);
 	void ClearBattleTable();
 

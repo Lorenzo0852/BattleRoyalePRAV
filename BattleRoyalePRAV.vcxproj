@@ -24,6 +24,7 @@
     <ClCompile Include="BattleRoyalePRAV\code\GameDirector.cpp" />
     <ClCompile Include="BattleRoyalePRAV\code\main.cpp" />
     <ClCompile Include="BattleRoyalePRAV\code\Player.cpp" />
+    <ClCompile Include="BattleRoyalePRAV\code\Trophy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BattleRoyalePRAV\code\Attack.h" />
@@ -31,6 +32,10 @@
     <ClInclude Include="BattleRoyalePRAV\code\BattleRoyaleTools.h" />
     <ClInclude Include="BattleRoyalePRAV\code\GameDirector.h" />
     <ClInclude Include="BattleRoyalePRAV\code\Player.h" />
+    <ClInclude Include="BattleRoyalePRAV\code\Trophy.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

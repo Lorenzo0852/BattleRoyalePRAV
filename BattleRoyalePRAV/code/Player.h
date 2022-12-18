@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Attack.h"
+#include "Trophy.h"
 
 class Player
 {
@@ -25,6 +26,7 @@ public:
 	bool is_alive = true;
 
 	Attack attacks[3];
+	Trophy trophy;
 
 public:
 	Player(int id, int health = 100);
@@ -39,6 +41,7 @@ public:
 	virtual std::string Battle(Player& other);
 	virtual void ReceiveDamage(int damage);
 
+	inline void ResetHP() { m_Health = 100; }
 	inline int GetHP() { return m_Health; }
 	inline std::string GetLastAttack() { return m_LastUsedAttack; }
 };

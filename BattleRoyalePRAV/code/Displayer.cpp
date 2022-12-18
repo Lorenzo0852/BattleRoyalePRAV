@@ -6,6 +6,7 @@ Displayer::Displayer()
 	SetupPlayerSelection();
 	SetupPlayerAddition();
 	SetupBattle();
+	SetupWinner();
 }
 
 void Displayer::AddPlayerToPool(Player* player)
@@ -224,6 +225,69 @@ void Displayer::SetupPlayerAddition()
 		.padding_left(1)
 		.padding_right(1);
 }
+void Displayer::SetupWinner()
+{
+	Table& t = m_WinnerTable;
+
+	t.add_row({ "ID", "Role", "Name", "Abilities", "Health left", "Rounds won" });
+
+	t.format()
+		.font_style({ FontStyle::bold })
+		.border_top(" ")
+		.border_bottom(" ")
+		.border_left(" ")
+		.border_right(" ")
+		.corner(" ");
+
+	t[0].format()
+		.padding_top(1)
+		.padding_bottom(1)
+		.padding_left(10)
+		.padding_right(10)
+		.font_align(FontAlign::center)
+		.font_style({ FontStyle::underline })
+		.font_background_color(Color::red);
+
+	t[0][2].format()
+		.padding_top(1)
+		.padding_bottom(1)
+		.padding_left(5)
+		.padding_right(5)
+		.font_align(FontAlign::center)
+		.font_style({ FontStyle::underline })
+		.font_background_color(Color::cyan);
+
+	t[0][3].format()
+		.padding_top(1)
+		.padding_bottom(1)
+		.padding_left(5)
+		.padding_right(5)
+		.font_align(FontAlign::center)
+		.font_style({ FontStyle::underline })
+		.font_background_color(Color::green);
+
+	t[0][1].format()
+		.font_background_color(Color::blue)
+		.font_color(Color::white);
+
+	t.column(0).format()
+		.padding_left(2)
+		.padding_right(2);
+
+
+	t.column(1).format()
+		.padding_left(3)
+		.padding_right(3);
+
+	t.column(4).format()
+		.padding_left(1)
+		.padding_right(1);
+
+	t.column(5).format()
+		.padding_left(1)
+		.padding_right(1);
+}
+
 void Displayer::SetupBattle()
 {
 	Table& t = m_BattleTable;
@@ -345,10 +409,10 @@ void Displayer::RenderBattle(std::vector<std::pair < Player*, Player* > > * batt
 
 		if (m_BattleTicks % 2 == 0)
 		{
-			t[rowIndex][0].format().font_color(Color::magenta);
-			t[rowIndex][1].format().font_color(Color::magenta);
-			t[rowIndex][2].format().font_color(Color::magenta);
-			t[rowIndex][3].format().font_color(Color::magenta);
+			t[rowIndex][0].format().font_color(Color::none);
+			t[rowIndex][1].format().font_color(Color::none);
+			t[rowIndex][2].format().font_color(Color::none);
+			t[rowIndex][3].format().font_color(Color::red);
 			//t[rowIndex][.format();
 			t[rowIndex][5].format().font_color(Color::none);
 			t[rowIndex][6].format().font_color(Color::yellow);
@@ -362,10 +426,10 @@ void Displayer::RenderBattle(std::vector<std::pair < Player*, Player* > > * batt
 			t[rowIndex][2].format().font_color(Color::yellow);
 			t[rowIndex][3].format().font_color(Color::none);
 			//t[rowIndex][.format();
-			t[rowIndex][5].format().font_color(Color::magenta);
-			t[rowIndex][6].format().font_color(Color::magenta);
-			t[rowIndex][7].format().font_color(Color::magenta);
-			t[rowIndex][8].format().font_color(Color::magenta);
+			t[rowIndex][5].format().font_color(Color::red);
+			t[rowIndex][6].format().font_color(Color::none);
+			t[rowIndex][7].format().font_color(Color::none);
+			t[rowIndex][8].format().font_color(Color::none);
 		}
 
 		++rowIndex;
@@ -384,14 +448,17 @@ void Displayer::ClearBattleTable()
 	int i = 0;
 	for (auto& row : t)
 	{
-		if (i == 0) continue;
+		if (i == 0)
+		{
+			++i;
+			continue;
+		}
 
 		for (auto& cell : row)
 		{
 			cell.set_text("");
 		}
 
-		++i;
 	}
 }
 
@@ -433,7 +500,24 @@ void Displayer::AddPairToBattle(Player* p1, Player* p2)
 void Displayer::RenderWinnerPresentation()
 {
 	Table& t = m_WinnerTable;
+
+	assert(m_WinnerInfo.winner != nullptr);		// <- NEED WINNER INFO BEFORE CALLING RENDERWINNERPRESENTATION()!!!
+
+	//t.add_row({ "ID", "Role", "Name", "Abilities", "Health left", "Rounds won" });
+	Player* player = m_WinnerInfo.winner;
+	int rounds = m_WinnerInfo.roundsSurvived;
+
+	t.add_row({ "[" + std::to_string(player->id) + "] ",								
+		player->role,																	
+		player->name,																	
+		(player->attacks[0].GetName() + ", " +										
+		player->attacks[1].GetName() + ", " +											
+		player->attacks[2].GetName()),												
+		std::to_string(player->GetHP()),												
+		std::to_string(rounds) });														
+
 	std::cout << t;
+	std::cout << " \n \n -------- " << player->name << " WON!! -------- \n \n ";
 }
 
 //Returns a player pointer with all user selected options.
